@@ -65,7 +65,7 @@ class AlienInvasion:
             self.impact_sound.fadeout(500)
 
         if self.alien_fleet.check_destroyed_status():
-            self._reset_level()
+            self._reset_level_2()
 
     def _check_game_status(self):
 
@@ -86,6 +86,10 @@ class AlienInvasion:
         self.alien_fleet.fleet.empty()
         self.alien_fleet.create_fleet()
 
+    def _reset_level_2(self):
+        self.ship.arsenal.arsenal.empty()
+        self.alien_fleet.fleet.empty()
+        self.alien_fleet.create_fleet_2()
 
     def _update_screen(self):
         self.screen.blit(self.bg, (0,0))
