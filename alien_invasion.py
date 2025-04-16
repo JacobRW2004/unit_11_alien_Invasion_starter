@@ -88,7 +88,7 @@ class AlienInvasion:
             
 
     def _reset_level(self):
-        self._reset_level()
+        #self._reset_level()
         self.ship.arsenal.arsenal.empty()
         self.alien_fleet.fleet.empty()
         self.alien_fleet.create_fleet()
