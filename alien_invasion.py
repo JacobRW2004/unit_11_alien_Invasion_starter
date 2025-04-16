@@ -14,6 +14,7 @@ class AlienInvasion:
     def __init__(self) -> None:
         pygame.init()
         self.settings = Settings()
+        self.settings.initalize_dynamic_settings()
         self.game_stats = GameStats(self.settings.starting_ship_count)
 
         self.screen = pygame.display.set_mode(
