@@ -9,6 +9,7 @@ if TYPE_CHECKING:
 class Button:
 
     def __init__(self, game: 'AlienInvasion', msg):
+        """initalize everything in button"""
         self.game = game 
         self.screen = game.screen
         self.boundaries = game.screen.get_rect()
@@ -20,13 +21,16 @@ class Button:
         self._prep_msg(msg)
 
     def _prep_msg(self, msg):
+        """prepares the message we plan on displaying on screen with font and position"""
         self.msg_image = self.font.render(msg, True, self.settings.text_color, None)
         self.msg_image_rect = self.msg_image.get_rect()
         self.msg_image_rect.center = self.rect.center
 
     def draw(self):
+        """draws our button, gives it color as well"""
         self.screen.fill(self.settings.button_color, self.rect)
         self.screen.blit(self.msg_image, self.msg_image_rect)
 
     def check_clicked(self, mouse_pos):
+        """checks if mouse collides with button"""
         return self.rect.collidepoint(mouse_pos)
