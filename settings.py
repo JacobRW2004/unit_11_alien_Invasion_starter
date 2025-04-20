@@ -7,7 +7,7 @@ class Settings:
         self.screen_w = 1200
         self.screen_h = 800
         self.FPS = 60
-        self.bg_file = Path.cwd() / 'Assets' / 'images' / 'Starbasesnow.png'
+        self.bg_file = Path.cwd() / 'Assets' / 'images' / 'Background-4.png'
         self.difficulty_scale = 1.1
         self.score_file = Path.cwd() / 'Assets' / 'file' / 'scores.json'
 
