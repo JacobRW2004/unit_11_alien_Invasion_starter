@@ -1,4 +1,5 @@
 import sys
+import random
 import pygame
 from settings import Settings
 from game_stats import GameStats
@@ -72,19 +73,29 @@ class AlienInvasion:
             self.HUD.update_scores()
 
         if self.alien_fleet.check_destroyed_status():
-            self._reset_level_2()
-            #101
+            self.level_pick()
+     
             self.settings.increase_difficulty()
             self.game_stats.update_level()
             self.HUD.update_level()
-            
+
+    def level_pick(self):
+        level_choice = self.get_level() 
+        if level_choice == 1:
+            self._reset_level()
+        elif level_choice == 2:
+            self._reset_level_2()
+
+    def get_level(self):
+        level_choice = random.choice([1,2])
+        return level_choice
 
     def _check_game_status(self):
 
         if self.game_stats.ship_left > 0:
             self.game_stats.ship_left -= 1
-            self._reset_level()
-            sleep(0.5)
+            self.level_pick()
+            sleep(1)
         else:
             self.game_active = False
 
@@ -99,6 +110,11 @@ class AlienInvasion:
         self.alien_fleet.fleet.empty()
         self.alien_fleet.create_fleet()
 
+    def _reset_level_2(self):
+        self.ship.arsenal.arsenal.empty()
+        self.alien_fleet.fleet.empty()
+        self.alien_fleet.create_fleet_2()
+
     def restart_game(self):
         self.settings.initalize_dynamic_settings()
         self.game_stats.reset_stats()
@@ -109,10 +125,6 @@ class AlienInvasion:
         pygame.mouse.set_visible(False)
         
 
-    def _reset_level_2(self):
-        self.ship.arsenal.arsenal.empty()
-        self.alien_fleet.fleet.empty()
-        self.alien_fleet.create_fleet_2()
 
     def _update_screen(self):
         self.screen.blit(self.bg, (0,0))

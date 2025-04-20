@@ -1,4 +1,5 @@
 import pygame 
+import math
 from alien import Alien
 from typing import TYPE_CHECKING
 
@@ -32,6 +33,7 @@ class AlienFleet:
         alien_h = self.settings.alien_h
         screen_w = self.settings.screen_w
         screen_h = self.settings.screen_h
+
         fleet_w, fleet_h = self.calculate_fleet_size(alien_w, screen_w, alien_h, screen_h)
         x_offset, y_offset = self.calculate_offsets(alien_w, alien_h, screen_w, fleet_w, fleet_h)
        
