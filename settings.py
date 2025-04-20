@@ -11,7 +11,7 @@ class Settings:
         self.difficulty_scale = 1.1
         self.score_file = Path.cwd() / 'Assets' / 'file' / 'scores.json'
 
-        self.ship_file = Path.cwd() / 'Assets' / 'images' / 'ship2(no bg).png'
+        self.ship_file = Path.cwd() / 'Assets' / 'images' / 'ship3.png'
         self.ship_w = 40
         self.ship_h = 60
 

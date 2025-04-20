@@ -72,7 +72,7 @@ class AlienInvasion:
             self.HUD.update_scores()
 
         if self.alien_fleet.check_destroyed_status():
-            self._reset_level()
+            self._reset_level_2()
             #101
             self.settings.increase_difficulty()
             self.game_stats.update_level()
@@ -109,10 +109,10 @@ class AlienInvasion:
         pygame.mouse.set_visible(False)
         
 
-    #def _reset_level_2(self):
-    #    self.ship.arsenal.arsenal.empty()
-    #    self.alien_fleet.fleet.empty()
-    #    self.alien_fleet.create_fleet_2()
+    def _reset_level_2(self):
+        self.ship.arsenal.arsenal.empty()
+        self.alien_fleet.fleet.empty()
+        self.alien_fleet.create_fleet_2()
 
     def _update_screen(self):
         self.screen.blit(self.bg, (0,0))
