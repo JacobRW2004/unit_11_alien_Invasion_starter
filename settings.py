@@ -21,7 +21,7 @@ class Settings:
 
 
 
-        self.alien_file = Path.cwd() / 'Assets' / 'images' / 'enemy_4.png'
+        self.alien_file = Path.cwd() / 'Assets' / 'images' / 'sotrak_enemy.png'
         self.alien_w = 40
         self.alien_h = 40
         self.fleet_direction = 1
